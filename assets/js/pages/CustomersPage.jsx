@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import customersAPI from "../services/customersAPI"
+import {Link} from "react-router-dom"
 
 const CustomersPage = () => {
     const [cutomers, setCustomers] = useState([])
@@ -27,7 +28,7 @@ const CustomersPage = () => {
             <td>{customer.email}</td>
             <td>{customer.company}</td>
             <td>
-                <button className="btn btn-secondary">Edit</button>
+                <Link to={`/customers/${customer.id}`} className="btn btn-secondary">Edit</Link>
                 <button className="btn btn-danger">Delete</button>
             </td>
         </tr>
@@ -36,6 +37,7 @@ const CustomersPage = () => {
     return (
         <div className="container">
             <h1>Customers</h1>
+            <Link to='/customers/create' className="btn btn-primary">Add customer</Link>
             <table className="table">
                 <thead>
                     <tr>
